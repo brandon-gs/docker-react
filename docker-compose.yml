@@ -1,0 +1,7 @@
+# Global configuration for development and production environments
+version: "3"
+services:
+  react-docker-app:
+    stdin_open: true
+    environment:
+      - CHOKIDAR_USEPOLLING=true

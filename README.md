@@ -1,6 +1,73 @@
-# Getting Started with Create React App
+# Docker + ReactJS + Nginx
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Containerization on the front-end with React and docker in development and production, and deployment of a React application with docker and nginx.
+
+This project is a demo from a ReactJS + Nginx + Docker that allow Development to Production workflow using multi-stage builds and docker compose.
+
+## Getting started
+
+You need to create two environment variables files, one for development and the other for production
+
+```bash
+$ cp .env.sample .env.dev
+$ cp .env.sample .env
+```
+
+After create these files, you need to config it with your own values for development and production environment.
+
+## Run with Docker for Development
+
+Run without docker compoose
+
+1. Build the docker image
+2. Run a docker container with our image
+
+```bash
+$ docker build -f Dockerfile.dev -t react-docker-app-image-dev .
+$ docker run --env-file ./.env.dev -v $(pwd)/src:/app/src:ro -d -p 3000:3000 --name react-docker-app react-docker-app-image-dev
+```
+
+Run with docker-compose
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build
+```
+
+Stop development container with docker-compose
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose-dev.yml down
+```
+
+## Run with Docker for Production
+
+For our production image we just have one docker stage with a nginx image, so we need to build our react app before create the image and the container.
+Use this approach allow us to use an .env file to use environment variables in our production react app.
+Run the following steps to run our app in production mode:
+
+1. Create the .env file and config with your own values
+
+```bash
+$ cp .env.sample .env
+```
+
+2. Build react app
+
+```bash
+$ npm run build
+```
+
+3. Run with docker-compose
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose-prod.yml up -d --build
+```
+
+Stop production container with docker-compose
+
+```bash
+$ docker-compose -f docker-compose.yml -f docker-compose-.yml down
+```
 
 ## Available Scripts
 
