@@ -6,7 +6,15 @@ This project is a demo from a ReactJS + Nginx + Docker that allow Development to
 
 ## Getting started
 
-You need to create two environment variables files, one for development and the other for production
+You need to have [docker](https://docs.docker.com/engine/install/) installed in your machine]
+
+Also you need to install **docker-compose** with the next command:
+
+```bash
+sudo apt install docker-compose
+```
+
+After you need to create two environment variables files, one for development and the other for production
 
 ```bash
 $ cp .env.sample .env.dev
