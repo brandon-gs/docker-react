@@ -1,6 +1,7 @@
 version: "3"
 services:
   react-docker-app:
+    image: react-docker-app-image-dev:latest
     build:
       context: .
       dockerfile: Dockerfile.dev

@@ -1,7 +1,7 @@
 FROM node:16.14.2
 WORKDIR /app
 COPY package.json .
-RUN npm install
+RUN yarn
 COPY . .
 ENV REACT_APP_NAME=myName
 EXPOSE 3000

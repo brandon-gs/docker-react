@@ -4,6 +4,8 @@ Containerization on the front-end with React and docker in development and produ
 
 This project is a demo from a ReactJS + Nginx + Docker that allow Development to Production workflow using multi-stage builds and docker compose.
 
+This project also support react-router-dom for nginx production environment.
+
 ## Getting started
 
 You need to have [docker](https://docs.docker.com/engine/install/) installed in your machine]

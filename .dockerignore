@@ -1,7 +1,9 @@
-node_modules
-Dockerfile
 .git
 .gitignore
 .dockerignore
 .env
+node_modules
 README.md
+LICENCE
+Dockerfile.*
+docker-compose*
